@@ -38,7 +38,7 @@ class QueueMonitor extends BaseCommand
     public function run(array $params)
     {
         $this->setRedisConnection();
-        die($this->config->redisHostName);
+
         $this->clientPromise->then(function ($client) {
 
             CLI::write('Connected to Redis.', 'green');
