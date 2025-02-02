@@ -38,7 +38,7 @@ class QueueMonitor extends BaseCommand
     public function run(array $params)
     {
         $this->setRedisConnection();
-
+        die($this->config->redisHostName);
         $this->clientPromise->then(function ($client) {
 
             CLI::write('Connected to Redis.', 'green');
@@ -64,6 +64,7 @@ class QueueMonitor extends BaseCommand
 
     private function displayStats($eventType) 
     {
+        
         $redisConnection = new \Clue\React\Redis\Factory();
         $redisClientPromise = $redisConnection->createClient('redis://'.$this->config->redisHostName.':'.$this->config->redisPort);
     
@@ -161,10 +162,10 @@ class QueueMonitor extends BaseCommand
                             } 
 
                             CLI::write("[Coaster : ". $coaster['id'] ."]".PHP_EOL , 'yellow');
-                            CLI::write("1. Godziny działania : ". $coaster['data']['time_from'] . " - ". $coaster['data']['time_to'] , 'cyan');
-                            CLI::write("2. Liczba wagonów : " . $wagonCount, 'cyan');
-                            CLI::write("3. Dostępny personel : ". $neededPersons .'/'. $stuff, $staffAvailabilityColor);
-                            CLI::write("4. Klienci dziennie : ".$coasterStats['totalPassengers'] .'/'. $coaster['data']['customer_quantity'] , $customerAvailabilityColor);
+                            CLI::write("1. Hours of operation : ". $coaster['data']['time_from'] . " - ". $coaster['data']['time_to'] , 'cyan');
+                            CLI::write("2. Wagon quantity : " . $wagonCount, 'cyan');
+                            CLI::write("3. Staff available : ". $neededPersons .'/'. $stuff, $staffAvailabilityColor);
+                            CLI::write("4.Customers per day : ".$coasterStats['totalPassengers'] .'/'. $coaster['data']['customer_quantity'] , $customerAvailabilityColor);
                             
                             if(isset($status[$coaster['id']])) { 
                                 CLI::write("5. Problem : ".$status[$coaster['id']], 'red');
