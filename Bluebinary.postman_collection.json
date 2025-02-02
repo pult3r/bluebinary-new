@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "3a056085-1ed2-4bda-b426-150ee49ffe52",
+		"name": "Bluebinary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30916125"
+	},
+	"item": [
+		{
+			"name": "coaster add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"1\",\n    \"personel_quantity\":22,\n    \"customer_quantity\": 1000,\n    \"route_length\": 1800,\n    \"time_from\": \"08:00\",\n    \"time_to\": \"18:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coaster store",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"personel_quantity\":10101,\n    \"customer_quantity\": 55000,\n    \"route_length\": 1800,\n    \"time_from\": \"00:00\",\n    \"time_to\": \"22:01\",\n    \"dupa\" : \"dupa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/store/coaster_777",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"store",
+						"coaster_777"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coaster list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coaster delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/delete/oiiu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"delete",
+						"oiiu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wagon add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seat_quantity\" : \"11\",\n    \"speed\" : \"1.2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/coaster_777/wagons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"coaster_777",
+						"wagons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wagon store",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seat_quantity\" : 10,\n    \"speed\" : 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/coaster_1/wagons/wagon_679fc87d54951",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"coaster_1",
+						"wagons",
+						"wagon_679fc87d54951"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wagon list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/coaster_777/wagons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"coaster_777",
+						"wagons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wagon delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/coasters/coaster_1/wagons/wagon_679fbb82d91f3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"coasters",
+						"coaster_1",
+						"wagons",
+						"wagon_679fbb82d91f3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
