@@ -16,7 +16,7 @@ class Logger extends BaseConfig
      * threshold determines what gets logged. Any values below or equal to the
      * threshold will be logged.
      *
-     * Threshold options are:
+     * Threshold options are: 
      *
      * - 0 = Disables logging, Error logging TURNED OFF
      * - 1 = Emergency Messages - System is unusable
@@ -38,7 +38,9 @@ class Logger extends BaseConfig
      *
      * @var int|list<int>
      */
-    public $threshold = (ENVIRONMENT === 'production') ? 4 : 9;
+
+     
+    public $threshold = (ENVIRONMENT === 'production') ? 5 : 9;
 
     /**
      * --------------------------------------------------------------------------
