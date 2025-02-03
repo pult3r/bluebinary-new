@@ -38,7 +38,7 @@ class QueueMonitor extends BaseCommand
     public function run(array $params)
     {
         $this->setRedisConnection();
-
+        
         $this->clientPromise->then(function ($client) {
 
             CLI::write('Connected to Redis.', 'green');
@@ -49,8 +49,6 @@ class QueueMonitor extends BaseCommand
         
             $client->on('pmessage', function ($pattern, $channel, $message) {
                     if (Str::startsWith($message, self::QUEUE_PREFIX .':')) {
-
-
                         $this->displayStats('setcoaster');
                     } 
                 });
@@ -165,7 +163,7 @@ class QueueMonitor extends BaseCommand
                             CLI::write("1. Hours of operation : ". $coaster['data']['time_from'] . " - ". $coaster['data']['time_to'] , 'cyan');
                             CLI::write("2. Wagon quantity : " . $wagonCount, 'cyan');
                             CLI::write("3. Staff available : ". $neededPersons .'/'. $stuff, $staffAvailabilityColor);
-                            CLI::write("4.Customers per day : ".$coasterStats['totalPassengers'] .'/'. $coaster['data']['customer_quantity'] , $customerAvailabilityColor);
+                            CLI::write("4. Customers per day : ".$coasterStats['totalPassengers'] .'/'. $coaster['data']['customer_quantity'] , $customerAvailabilityColor);
                             
                             if(isset($status[$coaster['id']])) { 
                                 CLI::write("5. Problem : ".$status[$coaster['id']], 'red');

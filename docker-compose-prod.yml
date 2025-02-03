@@ -42,7 +42,8 @@ services:
       - app-network  
     volumes:
       - ./data-prod/redis:/data 
-    command: ["redis-server"]
+      - ./redis.conf:/usr/local/etc/redis/redis.conf  
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     restart: always
 
 
