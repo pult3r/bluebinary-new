@@ -54,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"personel_quantity\":10101,\n    \"customer_quantity\": 55000,\n    \"route_length\": 1800,\n    \"time_from\": \"00:00\",\n    \"time_to\": \"22:01\",\n    \"dupa\" : \"dupa\"\n}",
+					"raw": "{\n    \"personel_quantity\":10101,\n    \"customer_quantity\": 55000,\n    \"route_length\": 1800,\n    \"time_from\": \"00:00\",\n    \"time_to\": \"22:01\",\n    }",
 					"options": {
 						"raw": {
 							"language": "json"

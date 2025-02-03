@@ -7,7 +7,7 @@ use CodeIgniter\Config\BaseConfig;
 class Coaster extends BaseConfig
 {
     public string $redisHostName = (ENVIRONMENT === 'production') ? 'bluebinary-redis-prod' : 'bluebinary-redis-dev';
-    public int $redisPort = 6379;
+    public int $redisPort = (ENVIRONMENT === 'production') ? 6379 : 6379;
     public int $neddedCoasterPersons = 1 ;
     public int $neddedWagonPersons = 2 ;
 

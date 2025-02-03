@@ -205,19 +205,23 @@ class CoasterController extends BaseController
 
         $this->clientPromise->then(function ($client) use ($id, $input, &$response) {
             $key = self::QUEUE_PREFIX .':'. $id;
-            $client->exists($key)->then(function ($exists) use ($client, $key, $input, &$response, $id) {
-                if (!$exists) {
-                    $response['message'] = 'Record not found.';
+
+            $client->get($key)->then(function ($redisData) use ($client, $key, $input, &$response, $id) {
+                if (!$redisData) {
+                    $response['message'] = 'Record not found in Redis.';
                     $this->loop->stop();
                     return;
                 }
 
-                $client->set($key, json_encode($input))
+                $existingData = json_decode($redisData, true);
+                $dataToSave = array_merge($existingData, $input); 
+    
+                $client->set($key, json_encode($dataToSave))
                     ->then(function () use ($id, &$response) {
-                        $response = ['status' => 'success', 'message' => 'Record updated.', 'updated_id' => $id];
+                        $response = ['status' => 'success', 'message' => 'Record updated in Redis.', 'updated_id' => $id];
                         $this->loop->stop();
                     });
-            });
+                });
         });
         
         $this->loop->run();

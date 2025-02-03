@@ -13,13 +13,13 @@ $ cd bluebinary-new
 $ composer install
 
 ## Create cocker container 
-For production : docker-compose -f docker-compose-prod.yml up --build<br/>
-For development docker-compose -f docker-compose-dev.yml up --build<br/>
+For production : <br/>docker-compose -f docker-compose-prod.yml up --build<br/>
+For development : <br/>docker-compose -f docker-compose-dev.yml up --build<br/>
 
 
 ## Go to docker container : 
-For production docker exec -it bluebinary-app-prod bash -l<br/>
-For development : docker exec -it bluebinary-app-dev bash -l <br/>
+For production : <br/>docker exec -it bluebinary-app-prod bash -l<br/>
+For development : <br/>docker exec -it bluebinary-app-dev bash -l <br/>
 
  
 # In container 

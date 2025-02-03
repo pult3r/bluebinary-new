@@ -167,6 +167,7 @@ class QueueMonitor extends BaseCommand
                             
                             if(isset($status[$coaster['id']])) { 
                                 CLI::write("5. Problem : ".$status[$coaster['id']], 'red');
+                                log_message('warning', "[". Carbon::now()->format('d-m-Y H:i:s')  ."] : ". $status[$coaster['id']]);
                             } else {
                                 CLI::write("5. Status : OK", 'cyan');
                             }
